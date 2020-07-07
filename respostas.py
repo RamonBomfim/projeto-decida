@@ -67,14 +67,9 @@ class Respostas(object):
         conn = banco.conexao.cursor()
 
         conn.execute("""
-            SELECT resposta FROM respostas
+            SELECT resposta FROM respostas ORDER BY RANDOM() limit 1;
         """)
 
-        self.respostas_aleatorias = []
+        self.respostas_aleatorias = [list(i) for i in conn.fetchall()]
 
-        for i in conn.fetchall():
-            self.respostas_aleatorias.append(i)
-
-        print(random.choice(self.respostas_aleatorias))
-
-        conn.close()
+        return random.choice(self.respostas_aleatorias)
