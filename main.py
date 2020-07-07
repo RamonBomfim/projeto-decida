@@ -60,7 +60,7 @@ class DecidaPorMim():
         self.DuvidaDoUsuario()
         print('Pensando...')
         sleep(3)
-        respostas.respostaAleatoria()
+        print(respostas.respostaAleatoria())
         sleep(2)
         self.DesejaContinuar()
 
